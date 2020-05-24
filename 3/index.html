@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!-- 
+    Lab 3
+    Name: Revanth Reddy
+    Roll: 16CS8027
+ -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Lab 3</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body style="text-align: center" >
+        <script>
+            function validate() {
+                pass = document.getElementById("password").value;
+                phone = document.getElementById("phone").value;
+                email = document.getElementById("email").value;
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; //For Email
+                if(!re.test(email)) {
+                    var mail = prompt("Please enter valid email");
+                    document.getElementById("email").value = mail;
+                }
+                if(phone.length!=10) {
+                    var ph = prompt("Please enter valid phone number");
+                    document.getElementById("phone").value = ph;
+                    return false;
+                }
+                regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;     //For password
+                if (regex.exec(pass) == null) {
+                    var passcode = prompt("Please Enter valid Password");
+                    document.getElementById("password").value = passcode;
+                    return false;
+                }
+                else {
+                    alert("valid");
+                    return true;
+                }
+            }
+        </script>
+        <a href="second.html"
+        onMouseOver="document.image1.src='nextover.png'"
+        onMouseOut="document.image1.src='next.png'">
+     
+        <img src="next.png" name="image1" style="width: 10vw;height: 10vw;">
+     
+       </a>
+        <form onsubmit="return validate()" >
+            <table style="display: inline-block;">
+                <h2>Fill up the form to register</h2>
+                <tr>
+                    <td>
+                        <label for="name" >Name</label>
+                    </td>
+                    <td>
+                        <input type="text" id="name" name="name" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="roll" >Roll No</label>
+                    </td>
+                    <td>
+                        <input type="text" id="roll" name="roll" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email" >Email</label>
+                    </td>
+                    <td>
+                        <input type="email" id="email" name="email" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="password">Password</label>
+                    </td>
+                    <td>
+                        <input type="password" id="password" name="password"  required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="phone">Phone</label>
+                    </td>
+                    <td>
+                        <input type="number" id="phone" name="phone" />
+                    </td>
+                </tr>
+            </table>
+            <p>
+                Skills:
+                <input type="checkbox" id="c" name="c" value="C" />
+                <label for="c">C</label>
+                <input type="checkbox" id="cpp" name="cpp" value="CPP" />
+                <label for="cpp">CPP</label>
+                <input type="checkbox" id="python" name="python" value="Python" />
+                <label for="python">Python</label>
+                <input type="checkbox" id="java" name="java" value="Java" />
+                <label for="java">Java</label>
+                <input type="checkbox" id="html" name="html" value="HTML" />
+                <label for="html">HTML</label>
+                <input type="checkbox" id="css" name="css" value="CSS" />
+                <label for="css">CSS</label>
+                <input type="checkbox" id="js" name="js" value="js" />
+                <label for="js">Javascript</label>
+            </p>
+            <p>
+                Gender:
+                <input type="radio" id="gender" name="gender" value="Male"/>
+                <label for="gender">Male</label>
+                <input type="radio" id="gender" name="gender" value="Female"/>
+                <label for="gender">Female</label>
+            </p>
+            <p>
+                I hereby declare that
+                <ol style="display: inline-block;">
+                    <li>I'm a student of NIT Durgapur.</li>
+                    <li>The data provided by me is true.</li>
+                </ol>
+            </p>
+            <input type="submit" />
+            <input type="reset" />
+        </form>
+        <br />
+        <br />
+        <br />
+        <a href="https://nitdgp.ac.in/">Go to college website</a>
+    </body>
+</html>
